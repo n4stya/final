@@ -943,7 +943,6 @@
         line-height: 16px;
         color: $color-text--dark;
         font-weight: 500;
-        margin-bottom: 126px;
         padding-right: 10px;
     }
 
@@ -956,9 +955,11 @@
         width: 120px;
         height: 32px;
         padding: 2px 7px 0px 6px;
-        position: relative;
-        top: -100px;
-        left: 280px;
+        position: static;
+        margin-bottom: 75px;
+        margin-top: 19px;
+        margin-right: 5px;
+        float: right;
         background-color: $color-button;
         color: $color-white;
         text-transform: uppercase;
@@ -1010,10 +1011,6 @@
         &__feedback {
             overflow-y: visible;
             padding: 0 32px 0 32px;
-        }
-
-        &__button {
-            left: 250px;
         }
 
         &__closeFeedback,
