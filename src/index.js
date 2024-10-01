@@ -211,6 +211,7 @@ document.querySelectorAll(".call").forEach(element => {
         document.getElementById("modalCall").classList.remove("hidemodal");
         document.getElementById("mask").style.display = "flex";
         document.getElementById("mask").classList.add("opacity");
+        document.getElementById("modalFeedback").classList.add("hidemodal");
     };
 });
 
@@ -227,6 +228,7 @@ document.querySelectorAll(".feedback").forEach(element => {
         document.getElementById("modalFeedback").classList.remove("hidemodal");
         document.getElementById("mask").style.display = "flex";
         document.getElementById("mask").classList.add("opacity");
+        document.getElementById("modalCall").classList.add("hidemodal");
     };
 });
 
@@ -235,4 +237,11 @@ document.getElementById("closeFeedback").onclick = function () {
     document.getElementById("modalFeedback").classList.remove("showmodal");
     document.getElementById("mask").style.display = "none";
     document.getElementById("mask").classList.remove("opacity");
+}
+
+document.getElementById("mask").onclick = function () {
+    document.getElementById("menu").classList.add("hidemenu");
+    document.getElementById("modalFeedback").classList.add("hidemodal");
+    document.getElementById("modalCall").classList.add("hidemodal");
+    document.getElementById("mask").style.display = "none";
 }

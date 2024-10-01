@@ -639,14 +639,19 @@
     flex-direction: column;
     padding: 18px 24px 32px 24px;
     position: fixed;
-    min-height: 100vh;
+    height: 100vh;
     top: 0px;
     float: left;
     background-color: $color-white;
     z-index: 20;
     overflow-x: hidden;
+    overflow-y: auto;
     transition: transform 0.3s ease-in-out;
     transform: translateX(-100%);
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
 
     &.showmenu {
         transform: translateX(0);
@@ -842,17 +847,22 @@
     &__feedback {
         width: 100%;
         max-width: 440px;
-        display: flex;
+        display: grid;
         flex-direction: column;
-        padding: 104px 16px 75px 16px;
         position: fixed;
-        min-height: 100vh;
+        height: 100vh;
+        padding: 0 16px 0 16px;
+        overflow-y: scroll;
         top: 0px;
         right: 0px;
         background-color: $color-white;
-        z-index: 20;
+        z-index: 30;
         transition: transform 0.3s ease-in-out;
         transform: translateX(120%);
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
 
         &.showmodal {
             transform: translateX(0);
@@ -884,6 +894,7 @@
         font-size: 24px;
         color: $color-text--dark;
         margin-bottom: 24px;
+        margin-top: 104px;
 
         &::before {
             content: "";
@@ -932,7 +943,7 @@
         line-height: 16px;
         color: $color-text--dark;
         font-weight: 500;
-        margin-bottom: 16px;
+        margin-bottom: 126px;
         padding-right: 10px;
     }
 
@@ -945,8 +956,9 @@
         width: 120px;
         height: 32px;
         padding: 2px 7px 0px 6px;
-        position: absolute;
-        right: 16px;
+        position: relative;
+        top: -100px;
+        left: 280px;
         background-color: $color-button;
         color: $color-white;
         text-transform: uppercase;
@@ -996,17 +1008,31 @@
 
         &__call,
         &__feedback {
-            padding: 40px 32px 75px 32px;
+            overflow-y: visible;
+            padding: 0 32px 0 32px;
         }
 
         &__button {
-            right: 32px;
+            left: 250px;
         }
 
         &__closeFeedback,
         &__closeCall {
             top: 32px;
             left: -72px;
+            position: fixed;
+        }
+
+        &__heading {
+            margin-top: 40px;
+        }
+
+        &__content {
+            overflow-y: auto;
+
+            &::-webkit-scrollbar {
+                display: none;
+            }
         }
     }
 }
